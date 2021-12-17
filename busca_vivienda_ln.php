@@ -55,7 +55,7 @@
 
    // Enviar consulta
       $instruccion = $sql;
-      $consulta = mysqli_query ($instruccion, $conexion)
+      $consulta = mysqli_query ($conexion, $instruccion)
          or die ("Fallo en la consulta");
 
    // Mostrar resultados de la consulta
