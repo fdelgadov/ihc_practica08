@@ -38,7 +38,7 @@
          $errores["consulta"] = "Debe introducir una consulta";
       	 $error = true;
       }
-      else if (!procesa_consulta ($consulta, $conexion, &$sql))
+      else if (!procesa_consulta ($consulta, $conexion, $sql))
       {
          $errores["consulta"] = "La consulta no es correcta";
       	 $error = true;

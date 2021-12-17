@@ -54,7 +54,7 @@
    // Pasar los valores que están en el diccionario a la tabla de salida
       $j=0;
       foreach ($tablaaux as $pal)
-     	if (en_diccionario ($pal, &$palN, $conexion))
+     	if (en_diccionario ($pal, $palN, $conexion))
       	{
       	   $salida[$j] = $palN;
       	   $j++;
