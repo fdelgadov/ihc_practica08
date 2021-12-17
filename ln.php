@@ -9,7 +9,7 @@
 // Función que procesa una frase de entrada.
 // Devuelve la sentencia sql correspondiente a la frase o la cadena vacía
 // si no se encuentra un patrón asociado a la frase.
-   function procesa_consulta ($consulta, $conexion, $sql)
+   function procesa_consulta ($consulta, $conexion, &$sql)
    {
       // print ("<P>Consulta original: $consulta</P>\n");
    	     
@@ -65,7 +65,7 @@
 // Función que comprueba si una palabra está en el diccionario.
 // En caso afirmativo devuelve la forma normalizada de la palabra.
 // Los números se consideran palabras válidas
-   function en_diccionario ($pal, $palN, $conexion)
+   function en_diccionario ($pal, &$palN, $conexion)
    {
    	   $esta = false;
    	   
