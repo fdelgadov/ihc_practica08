@@ -20,14 +20,14 @@ INSERT INTO ln_diccionario VALUES ('casa', 'Casa');
 INSERT INTO ln_diccionario VALUES ('chalet', 'Chalet');
 INSERT INTO ln_diccionario VALUES ('adosado', 'Adosado');
 INSERT INTO ln_diccionario VALUES ('centro', 'Centro');
-INSERT INTO ln_diccionario VALUES ('nervi髇', 'Nervi髇');
+INSERT INTO ln_diccionario VALUES ('nervi贸n', 'Nervi贸n');
 INSERT INTO ln_diccionario VALUES ('triana', 'Triana');
 INSERT INTO ln_diccionario VALUES ('macarena', 'Macarena');
 INSERT INTO ln_diccionario VALUES ('aljarafe', 'Aljarafe');
 INSERT INTO ln_diccionario VALUES ('precio', 'precio');
 INSERT INTO ln_diccionario VALUES ('dormitorio', 'dormitorios');
 INSERT INTO ln_diccionario VALUES ('dormitorios', 'dormitorios');
-INSERT INTO ln_diccionario VALUES ('habitaci髇', 'dormitorios');
+INSERT INTO ln_diccionario VALUES ('habitaci贸n', 'dormitorios');
 INSERT INTO ln_diccionario VALUES ('habitaciones', 'dormitorios');
 INSERT INTO ln_diccionario VALUES ('euro', 'euros');
 INSERT INTO ln_diccionario VALUES ('euros', 'euros');
@@ -38,9 +38,9 @@ INSERT INTO ln_diccionario VALUES ('cuatro', '4');
 INSERT INTO ln_diccionario VALUES ('cinco', '5');
 INSERT INTO ln_diccionario VALUES ('piscina', 'Piscina');
 INSERT INTO ln_diccionario VALUES ('garage', 'Garage');
-INSERT INTO ln_diccionario VALUES ('jard韓', 'Jard韓');
+INSERT INTO ln_diccionario VALUES ('jard铆n', 'Jard铆n');
 INSERT INTO ln_diccionario VALUES ('mas', 'mas');
-INSERT INTO ln_diccionario VALUES ('m醩', 'mas');
+INSERT INTO ln_diccionario VALUES ('m谩s', 'mas');
 INSERT INTO ln_diccionario VALUES ('metros', 'metros');
 INSERT INTO ln_diccionario VALUES ('barato', 'barato');
 
@@ -80,12 +80,12 @@ INSERT INTO ln_patrones VALUES (9, 'busco tipo barato', 'select * from viviendas
 CREATE TABLE viviendas (
   id smallint(5) unsigned NOT NULL auto_increment,
   tipo enum('Piso','Adosado','Chalet','Casa') NOT NULL default 'Piso',
-  zona enum('Centro','Nervi髇','Triana','Aljarafe','Macarena') NOT NULL default 'Centro',
+  zona enum('Centro','Nervi贸n','Triana','Aljarafe','Macarena') NOT NULL default 'Centro',
   direccion varchar(100) NOT NULL default '',
   ndormitorios enum('1','2','3','4','5') NOT NULL default '3',
   precio decimal(10,0) NOT NULL default '0',
   tamano decimal(10,0) NOT NULL default '0',
-  extras set('Piscina','Jard韓','Garage') NOT NULL default '',
+  extras set('Piscina','Jard铆n','Garage') NOT NULL default '',
   foto varchar(50) default NULL,
   observaciones text,
   PRIMARY KEY  (id)
@@ -95,19 +95,19 @@ CREATE TABLE viviendas (
 # Volcar la base de datos para la tabla `viviendas`
 #
 
-INSERT INTO viviendas VALUES (1, 'Piso', 'Nervi髇', 'Avda de la Buhaira', '4', '360000', '125', 'Garaje', 'piso1.jpg', 'Aire acondicionado fr韔/calor, trastero, amueblado, reciente construcci髇');
-INSERT INTO viviendas VALUES (2, 'Chalet', 'Aljarafe', 'Calle del Rosal', '4', '450000', '180', 'Piscina,Jard韓,Garaje', 'chalet1.jpg', 'Chalet independiente de una s髄a planta en parcela de 1000 metros cuadrados con piscina y cancha de tenis, dentro de una urbanizaci髇 cerrada y vigilada con club social');
-INSERT INTO viviendas VALUES (3, 'Piso', 'Nervi髇', 'Avda de Kansas City', '2', '215000', '89', 'Garaje', 'apartamento1.jpg', 'Luminoso y bien situado. Reformado recientemente. Oportunidad');
-INSERT INTO viviendas VALUES (4, 'Piso', 'Macarena', 'Ronda de los Olmos', '3', '165000', '83', '', 'piso3.jpg', 'Completamente reformado. Soleado. Vistas al r韔');
-INSERT INTO viviendas VALUES (5, 'Adosado', 'Aljarafe', 'Urb. Santa M髇ica', '4', '300000', '130', 'Piscina,Jard韓,Garaje', 'adosado1.jpg', 'Urbanizaci髇 de reciente construcci髇. Zona ajardinada interior con piscina y pistas de paddle-tenis. Amplias facilidades');
-INSERT INTO viviendas VALUES (6, 'Casa', 'Centro', 'Pintor Murillo', '2', '150000', '93', '', 'casa1.jpg', 'Edificio reformado en pleno centro hist髍ico de la ciudad. Patio interior cubierto');
-INSERT INTO viviendas VALUES (7, 'Piso', 'Nervi髇', 'Avda Eduardo Dato', '3', '375000', '130', 'Garaje', 'piso2.jpg', 'Amplio trastero');
-INSERT INTO viviendas VALUES (8, 'Piso', 'Nervi髇', 'San Bernardo', '2', '205000', '80', 'Garaje', 'apartamento2.jpg', '');
-INSERT INTO viviendas VALUES (9, 'Piso', 'Nervi髇', 'Enramadilla', '2', '215000', '85', 'Garaje', 'apartamento3.jpg', '');
-INSERT INTO viviendas VALUES (10, 'Chalet', 'Aljarafe', 'Calle Pino Verde', '4', '430000', '170', 'Piscina,Jard韓,Garaje', 'chalet2.jpg', 'Chalet independiente de una s髄a planta en parcela de 500 metros cuadrados con piscina y pista de p醖el');
-INSERT INTO viviendas VALUES (11, 'Chalet', 'Aljarafe', 'Calle Jacaranda', '4', '425000', '175', 'Piscina,Jard韓,Garaje', 'chalet3.jpg', 'Chalet adosado de dos plantas en parcela de 600 metros cuadrados con piscina y pista de p醖el');
-INSERT INTO viviendas VALUES (12, 'Chalet', 'Aljarafe', 'Calle Mimosa', '3', '405000', '145', 'Piscina,Jard韓,Garaje', 'chalet4.jpg', 'Chalet pareado de dos plantas');
-INSERT INTO viviendas VALUES (13, 'Chalet', 'Aljarafe', 'Calle Violeta', '3', '400000', '143', 'Piscina,Jard韓,Garaje', 'chalet5.jpg', 'Chalet pareado de dos plantas');
-INSERT INTO viviendas VALUES (14, 'Piso', 'Nervi髇', 'Avda de la Buhaira', '3', '385000', '145', 'Garaje', 'duplex1.jpg', 'D鷓lex muy luminoso y con vistas');
-INSERT INTO viviendas VALUES (15, 'Piso', 'Nervi髇', 'Avda Eduardo Dato', '4', '455000', '165', 'Garaje', 'duplex2.jpg', '羣ico con vistas espectaculares');
+INSERT INTO viviendas VALUES (1, 'Piso', 'Nervi贸n', 'Avda de la Buhaira', '4', '360000', '125', 'Garaje', 'piso1.jpg', 'Aire acondicionado fr铆o/calor, trastero, amueblado, reciente construcci贸n');
+INSERT INTO viviendas VALUES (2, 'Chalet', 'Aljarafe', 'Calle del Rosal', '4', '450000', '180', 'Piscina,Jard铆n,Garaje', 'chalet1.jpg', 'Chalet independiente de una s贸la planta en parcela de 1000 metros cuadrados con piscina y cancha de tenis, dentro de una urbanizaci贸n cerrada y vigilada con club social');
+INSERT INTO viviendas VALUES (3, 'Piso', 'Nervi贸n', 'Avda de Kansas City', '2', '215000', '89', 'Garaje', 'apartamento1.jpg', 'Luminoso y bien situado. Reformado recientemente. Oportunidad');
+INSERT INTO viviendas VALUES (4, 'Piso', 'Macarena', 'Ronda de los Olmos', '3', '165000', '83', '', 'piso3.jpg', 'Completamente reformado. Soleado. Vistas al r铆o');
+INSERT INTO viviendas VALUES (5, 'Adosado', 'Aljarafe', 'Urb. Santa M贸nica', '4', '300000', '130', 'Piscina,Jard铆n,Garaje', 'adosado1.jpg', 'Urbanizaci贸n de reciente construcci贸n. Zona ajardinada interior con piscina y pistas de paddle-tenis. Amplias facilidades');
+INSERT INTO viviendas VALUES (6, 'Casa', 'Centro', 'Pintor Murillo', '2', '150000', '93', '', 'casa1.jpg', 'Edificio reformado en pleno centro hist贸rico de la ciudad. Patio interior cubierto');
+INSERT INTO viviendas VALUES (7, 'Piso', 'Nervi贸n', 'Avda Eduardo Dato', '3', '375000', '130', 'Garaje', 'piso2.jpg', 'Amplio trastero');
+INSERT INTO viviendas VALUES (8, 'Piso', 'Nervi贸n', 'San Bernardo', '2', '205000', '80', 'Garaje', 'apartamento2.jpg', '');
+INSERT INTO viviendas VALUES (9, 'Piso', 'Nervi贸n', 'Enramadilla', '2', '215000', '85', 'Garaje', 'apartamento3.jpg', '');
+INSERT INTO viviendas VALUES (10, 'Chalet', 'Aljarafe', 'Calle Pino Verde', '4', '430000', '170', 'Piscina,Jard铆n,Garaje', 'chalet2.jpg', 'Chalet independiente de una s贸la planta en parcela de 500 metros cuadrados con piscina y pista de p谩del');
+INSERT INTO viviendas VALUES (11, 'Chalet', 'Aljarafe', 'Calle Jacaranda', '4', '425000', '175', 'Piscina,Jard铆n,Garaje', 'chalet3.jpg', 'Chalet adosado de dos plantas en parcela de 600 metros cuadrados con piscina y pista de p谩del');
+INSERT INTO viviendas VALUES (12, 'Chalet', 'Aljarafe', 'Calle Mimosa', '3', '405000', '145', 'Piscina,Jard铆n,Garaje', 'chalet4.jpg', 'Chalet pareado de dos plantas');
+INSERT INTO viviendas VALUES (13, 'Chalet', 'Aljarafe', 'Calle Violeta', '3', '400000', '143', 'Piscina,Jard铆n,Garaje', 'chalet5.jpg', 'Chalet pareado de dos plantas');
+INSERT INTO viviendas VALUES (14, 'Piso', 'Nervi贸n', 'Avda de la Buhaira', '3', '385000', '145', 'Garaje', 'duplex1.jpg', 'D煤plex muy luminoso y con vistas');
+INSERT INTO viviendas VALUES (15, 'Piso', 'Nervi贸n', 'Avda Eduardo Dato', '4', '455000', '165', 'Garaje', 'duplex2.jpg', '脕tico con vistas espectaculares');
 

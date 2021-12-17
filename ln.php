@@ -1,14 +1,14 @@
 <?php
 
 /////////////////////////////////////////////////////////////////////////
-// MÛdulo de reconocimiento de lenguaje natural mediante pattern matching
-// Autor: Mariano Gonz·lez
+// M√≥dulo de reconocimiento de lenguaje natural mediante pattern matching
+// Autor: Mariano Gonz√°lez
 // Fecha: noviembre 2007
 /////////////////////////////////////////////////////////////////////////
 
-// FunciÛn que procesa una frase de entrada.
-// Devuelve la sentencia sql correspondiente a la frase o la cadena vacÌa
-// si no se encuentra un patrÛn asociado a la frase.
+// Funci√≥n que procesa una frase de entrada.
+// Devuelve la sentencia sql correspondiente a la frase o la cadena vac√≠a
+// si no se encuentra un patr√≥n asociado a la frase.
    function procesa_consulta ($consulta, $conexion, $sql)
    {
       // print ("<P>Consulta original: $consulta</P>\n");
@@ -21,12 +21,12 @@
       //    print ($pal . " ");
       // print ("</P>\n");
 
-      // Buscar el patrÛn que corresponde a la frase de entrada
+      // Buscar el patr√≥n que corresponde a la frase de entrada
          $patron = busca_patron ($consultaN, $conexion);
 
-      // print ("<P>PatrÛn: $patron</P>\n");
+      // print ("<P>Patr√≥n: $patron</P>\n");
 
-      // Si se ha encotrado un patrÛn v·lido, construir la sentencia sql
+      // Si se ha encotrado un patr√≥n v√°lido, construir la sentencia sql
          if ($patron > 0)
          {
          	$sql = consulta_patron ($consultaN, $patron, $conexion);
@@ -43,15 +43,15 @@
          return $resul;
    }
    
-// FunciÛn que elimina las palabras de la frase de entrada que no est·n en el
-// diccionario y convierte las palabras que sÌ est·n a una forma normalizada
+// Funci√≥n que elimina las palabras de la frase de entrada que no est√°n en el
+// diccionario y convierte las palabras que s√≠ est√°n a una forma normalizada
    function normaliza_entrada ($entrada, $conexion)
    {
    	  $salida = array();
 
    // Pasar los valores de la frase de entrada a una tabla auxiliar
       $tablaaux = explode (" ", $entrada);
-   // Pasar los valores que est·n en el diccionario a la tabla de salida
+   // Pasar los valores que est√°n en el diccionario a la tabla de salida
       $j=0;
       foreach ($tablaaux as $pal)
      	if (en_diccionario ($pal, &$palN, $conexion))
@@ -62,9 +62,9 @@
       return $salida;
    }
    
-// FunciÛn que comprueba si una palabra est· en el diccionario.
+// Funci√≥n que comprueba si una palabra est√° en el diccionario.
 // En caso afirmativo devuelve la forma normalizada de la palabra.
-// Los n˙meros se consideran palabras v·lidas
+// Los n√∫meros se consideran palabras v√°lidas
    function en_diccionario ($pal, $palN, $conexion)
    {
    	   $esta = false;
@@ -90,8 +90,8 @@
   	   return $esta;
    }
    
-// FunciÛn que busca el patrÛn que corresponde a una frase de entrada.
-// Devuelve el n˙mero del patrÛn o 0 si no se encuentra
+// Funci√≥n que busca el patr√≥n que corresponde a una frase de entrada.
+// Devuelve el n√∫mero del patr√≥n o 0 si no se encuentra
    function busca_patron ($cadena, $conexion)
    {
       $enc = false;
@@ -117,7 +117,7 @@
             $enc = false;
          else
          {
-         // Comparar palabra a palabra el patrÛn y la frase de entrada
+         // Comparar palabra a palabra el patr√≥n y la frase de entrada
             while ($j<count($cadena) && $enc)
             {
                $cad1 = $patronT[$j];
@@ -137,20 +137,20 @@
    	     return 0;
    }
    
-// FunciÛn que comprueba si la palabra del patrÛn y la palabra de la cadena
-// que ocupan una misma posiciÛn en la frase coinciden   
+// Funci√≥n que comprueba si la palabra del patr√≥n y la palabra de la cadena
+// que ocupan una misma posici√≥n en la frase coinciden   
    function coincide ($pal1, $pal2, $conexion)
    {
-   // Las palabras del patrÛn y la cadena coinciden si:
+   // Las palabras del patr√≥n y la cadena coinciden si:
    // a) Son una misma palabra
    	  if (!strcmp($pal1,$pal2))
    	     $c = true;
 
-   // b) La palabra del patrÛn es 'numero' y la de la cadena un n˙mero
+   // b) La palabra del patr√≥n es 'numero' y la de la cadena un n√∫mero
    	  else if (!strcmp($pal1,"numero") && is_numeric($pal2))
    	     $c = true;
    	  
-   // c) La palabra del patrÛn es el nombre de un campo de tipo enum o set
+   // c) La palabra del patr√≥n es el nombre de un campo de tipo enum o set
    //    y la palabra de la cadena es un posible valor del campo
    	  else
    	  {
@@ -169,8 +169,8 @@
    	  return $c;
    }
    
-// FunciÛn que construye la consulta sql asociada a un patrÛn, reemplazando
-// las partes variables del patrÛn por los valores correspondientes de la
+// Funci√≥n que construye la consulta sql asociada a un patr√≥n, reemplazando
+// las partes variables del patr√≥n por los valores correspondientes de la
 // frase de entrada
    function consulta_patron ($consultaN, $id, $conexion)
    {
@@ -195,7 +195,7 @@
    	  return $consultasql;
    }
    
-// FunciÛn que devuelve los valores de un campo de tipo enum
+// Funci√≥n que devuelve los valores de un campo de tipo enum
    function valores_tipo_enumerado ($conexion, $tabla, $columna)
    {
       $instruccion = "SHOW columns FROM $tabla LIKE '$columna'";
@@ -209,7 +209,7 @@
       return ($lista);
    }
 
-// FunciÛn que devuelve los valores de un campo de tipo set
+// Funci√≥n que devuelve los valores de un campo de tipo set
    function valores_tipo_conjunto ($conexion, $tabla, $columna)
    {
       $instruccion = "SHOW columns FROM $tabla LIKE '$columna'";

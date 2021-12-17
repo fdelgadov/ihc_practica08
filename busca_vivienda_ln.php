@@ -1,7 +1,7 @@
 <HTML LANG="es">
 
 <HEAD>
-   <TITLE>Búsqueda de vivienda</TITLE>
+   <TITLE>BÃºsqueda de vivienda</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="estilo.css">
    
 <?PHP
@@ -12,7 +12,7 @@
 
 <BODY>
 
-<H1>Búsqueda de vivienda</H1>
+<H1>BÃºsqueda de vivienda</H1>
 
 <?PHP
 // Obtener valores introducidos en el formulario
@@ -51,7 +51,7 @@
 // Si los datos son correctos, procesar formulario
    if (isset($buscar) && $error==false)
    {
-      print("<P>Resultados de la búsqueda:</P>\n");
+      print("<P>Resultados de la bÃºsqueda:</P>\n");
 
    // Enviar consulta
       $instruccion = $sql;
@@ -68,7 +68,7 @@
          print ("<TH WIDTH='100'>Zona</TH>\n");
          print ("<TH WIDTH='100'>Dormitorios</TH>\n");
          print ("<TH WIDTH='75'>Precio</TH>\n");
-         print ("<TH WIDTH='75'>Tamaño</TH>\n");
+         print ("<TH WIDTH='75'>TamaÃ±o</TH>\n");
          print ("<TH WIDTH='150'>Extras</TH>\n");
          print ("<TH WIDTH='50'>Foto</TH>\n");
          print ("</TR>\n");
@@ -128,7 +128,7 @@
 <?PHP
    }
 
-// Cerrar conexión
+// Cerrar conexiÃ³n
    mysql_close ($conexion);
 ?>
 
