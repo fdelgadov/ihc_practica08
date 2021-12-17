@@ -77,13 +77,13 @@
    	   else
    	   {
    	      $instruccion = "select palabra, normalizada from ln_diccionario where palabra='$pal'";
-          $consulta = mysql_query ($instruccion, $conexion)
+          $consulta = mysqli_query ($instruccion, $conexion)
              or die ("Fallo en la consulta");
-          $nfilas = mysql_num_rows ($consulta);
+          $nfilas = mysqli_num_rows ($consulta);
           if ($nfilas > 0)
           {
              $esta = true;
-             $resultado = mysql_fetch_array ($consulta);
+             $resultado = mysqli_fetch_array ($consulta);
              $palN = $resultado['normalizada']; 
           }
    	   }
@@ -98,15 +98,15 @@
 
    // Obtener los patrones de la base de datos
  	  $instruccion = "select patron from ln_patrones";
-      $consulta = mysql_query ($instruccion, $conexion)
+      $consulta = mysqli_query ($instruccion, $conexion)
          or die ("Fallo en la consulta");
-      $nfilas = mysql_num_rows ($consulta);
+      $nfilas = mysqli_num_rows ($consulta);
 
    // Buscar en todos los patrones
       $i = 0;
       while ($i<$nfilas && !$enc)
       {
-         $resultado = mysql_fetch_array ($consulta);
+         $resultado = mysqli_fetch_array ($consulta);
          $patron = $resultado['patron']; 
          $patronT = explode (" ", $patron);
 
@@ -176,9 +176,9 @@
    {
    // Obtener la sentencia sql de la base de datos
    	  $instruccion = "select consultasql, patron from ln_patrones where id=$id";
-      $consulta = mysql_query ($instruccion, $conexion)
+      $consulta = mysqli_query ($instruccion, $conexion)
          or die ("Fallo en la consulta");
-      $resultado = mysql_fetch_array ($consulta);
+      $resultado = mysqli_fetch_array ($consulta);
       $consultasql = $resultado['consultasql']; 
       $patron = $resultado['patron']; 
       $patronT = explode (" ", $patron);
@@ -199,8 +199,8 @@
    function valores_tipo_enumerado ($conexion, $tabla, $columna)
    {
       $instruccion = "SHOW columns FROM $tabla LIKE '$columna'";
-      $consulta = mysql_query ($instruccion, $conexion);
-      $row = mysql_fetch_array ($consulta);
+      $consulta = mysqli_query ($instruccion, $conexion);
+      $row = mysqli_fetch_array ($consulta);
 
       $lis = strstr ($row[1], "(");
       $lis = ltrim ($lis, "(");
@@ -213,8 +213,8 @@
    function valores_tipo_conjunto ($conexion, $tabla, $columna)
    {
       $instruccion = "SHOW columns FROM $tabla LIKE '$columna'";
-      $consulta = mysql_query ($instruccion, $conexion);
-      $row = mysql_fetch_array ($consulta);
+      $consulta = mysqli_query ($instruccion, $conexion);
+      $row = mysqli_fetch_array ($consulta);
 
       $lis = strstr ($row[1], "(");
       $lis = ltrim ($lis, "(");
