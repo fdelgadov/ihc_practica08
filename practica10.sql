@@ -5,7 +5,7 @@
 CREATE TABLE ln_diccionario (
   palabra varchar(30) NOT NULL default '',
   normalizada varchar(30) NOT NULL default ''
-) TYPE=MyISAM COMMENT='Diccionario para el reconocedor de lenguaje natural';
+) ENGINE=MyISAM COMMENT='Diccionario para el reconocedor de lenguaje natural';
 
 #
 # Volcar la base de datos para la tabla `ln_diccionario`
@@ -55,7 +55,7 @@ CREATE TABLE ln_patrones (
   patron varchar(100) NOT NULL default '',
   consultasql varchar(100) NOT NULL default '',
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Patrones para el reconocedor de lenguaje natural';
+) ENGINE=MyISAM COMMENT='Patrones para el reconocedor de lenguaje natural';
 
 #
 # Volcar la base de datos para la tabla `ln_patrones`
@@ -89,7 +89,7 @@ CREATE TABLE viviendas (
   foto varchar(50) default NULL,
   observaciones text,
   PRIMARY KEY  (id)
-) TYPE=MyISAM COMMENT='Viviendas de la inmobiliaria Lindavista';
+) ENGINE=MyISAM COMMENT='Viviendas de la inmobiliaria Lindavista';
 
 #
 # Volcar la base de datos para la tabla `viviendas`
