@@ -20,11 +20,11 @@
    $consulta = $_REQUEST['consulta'];
 
 // Conectar con el servidor de base de datos
-   $conexion = mysql_connect ("localhost", "cursophp", "")
+   $conexion = mysqli_connect ("localhost", "root", "")
       or die ("No se puede conectar con el servidor");
 
 // Seleccionar base de datos
-   mysql_select_db ("lindavista")
+   mysqli_select_db ($conexion, "lindavista")
       or die ("No se puede seleccionar la base de datos");
 
    $error = false;
@@ -55,11 +55,11 @@
 
    // Enviar consulta
       $instruccion = $sql;
-      $consulta = mysql_query ($instruccion, $conexion)
+      $consulta = mysqli_query ($instruccion, $conexion)
          or die ("Fallo en la consulta");
 
    // Mostrar resultados de la consulta
-      $nfilas = mysql_num_rows ($consulta);
+      $nfilas = mysqli_num_rows ($consulta);
       if ($nfilas > 0)
       {
          print ("<TABLE WIDTH='650'>\n");
@@ -75,7 +75,7 @@
 
          for ($i=0; $i<$nfilas; $i++)
          {
-            $resultado = mysql_fetch_array ($consulta);
+            $resultado = mysqli_fetch_array ($consulta);
             print ("<TR>\n");
             print ("<TD>" . $resultado['tipo'] . "</TD>\n");
             print ("<TD>" . $resultado['zona'] . "</TD>\n");
@@ -129,7 +129,7 @@
    }
 
 // Cerrar conexión
-   mysql_close ($conexion);
+   mysqli_close ($conexion);
 ?>
 
 </BODY>
